@@ -46,4 +46,4 @@ const updateStatus =  async (req,res) => {
 }
 
 
-module.exports = { getTransactions,getTransactionsBySchool,statusCheck,updateStatus};
+module.exports = {getTransactions,getTransactionsBySchool,statusCheck,updateStatus};
