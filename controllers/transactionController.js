@@ -32,7 +32,9 @@ const updateStatus =  async (req,res) => {
     try {
         const {custom_order_id} = req.params
         const {status} = req.body
-        console.log(typeof custom_order_id)
+        if(!["SUCCESS", "PENDING", "FAILURE"].includes(status)){
+            return res.status(400).json({message: "Invalid Status"})
+        }
         const transaction = await Transaction.findOneAndUpdate({custom_order_id}, {status})
         if(!transaction){
             return res.status(400).json({message: "Transaction Not Found"})
